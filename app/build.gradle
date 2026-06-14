@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+android {
+    namespace "com.thughan.evolution"
+    compileSdkVersion androidVersion.compileSdkVersion
+    buildToolsVersion androidVersion.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.thughan.evolution"
+        minSdkVersion androidVersion.minSdkVersion
+        targetSdkVersion androidVersion.targetSdkVersion
+        versionCode androidVersion.versionCode
+        versionName androidVersion.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation dps.appcompat
+    implementation dps.material
+    implementation dps.constraintlayout
+    testImplementation dps.junit
+    androidTestImplementation dps.ext_junit
+    androidTestImplementation dps.espresso_core
+
+    implementation dps.arouter_api
+    annotationProcessor dps.arouter_compiler
+
+    if (!KotlinDebug){
+        implementation project(':kotlin')
+    }
+    if (!DesignModeDebug){
+        implementation project(':designmode')
+    }
+    if (!IpcDebug){
+        implementation project(':ipc')
+    }
+    if (!ModuleAndroidDebug){
+        implementation project(':module_android')
+    }
+}

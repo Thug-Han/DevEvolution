@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".crashcatch.CrashActivity">
+
+    <Button
+        android:id="@+id/null_point"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="空指针"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/array_out_of_bound"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="数组越界"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/null_point" />
+
+    <Button
+        android:id="@+id/concurrent"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="Concurrent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/array_out_of_bound" />
+
+    <Button
+        android:id="@+id/show_random_btn"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="展示随机数"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/concurrent" />
+
+    <TextView
+        android:id="@+id/show_random"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="展示随机数"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/show_random_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

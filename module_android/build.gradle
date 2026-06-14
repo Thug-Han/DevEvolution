@@ -1,0 +1,52 @@
+if (ModuleAndroidDebug) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+android {
+    namespace "com.thughan.android"
+    compileSdkVersion androidVersion.compileSdkVersion
+    buildToolsVersion androidVersion.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidVersion.minSdkVersion
+        targetSdkVersion androidVersion.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation dps.appcompat
+    implementation dps.material
+    implementation dps.constraintlayout
+    testImplementation dps.junit
+    androidTestImplementation dps.ext_junit
+    androidTestImplementation dps.espresso_core
+
+    implementation dps.utilcodex
+
+    implementation dps.arouter_api
+    annotationProcessor dps.arouter_compiler
+}
