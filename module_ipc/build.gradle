@@ -10,6 +10,9 @@ android {
     buildToolsVersion androidVersion.buildToolsVersion
 
     defaultConfig {
+        if (ModuleIpcDebug) {
+            applicationId "com.thughan.ipc"
+        }
         minSdkVersion androidVersion.minSdkVersion
         targetSdkVersion androidVersion.targetSdkVersion
         versionCode 1

@@ -6,7 +6,12 @@
             android:name=".jetpack.compose.ComposeActivity"
             android:exported="true"
             android:label="@string/title_activity_compose"
-            android:theme="@style/Theme.Evolution" />
+            android:theme="@style/Theme.Evolution">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".firstline.MainActivity"
             android:exported="true" />

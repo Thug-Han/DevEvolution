@@ -10,6 +10,9 @@ android {
     buildToolsVersion androidVersion.buildToolsVersion
 
     defaultConfig {
+        if (ModuleDesignModeDebug) {
+            applicationId "com.thughan.designmode"
+        }
         minSdkVersion androidVersion.minSdkVersion
         targetSdkVersion androidVersion.targetSdkVersion
         versionCode 1

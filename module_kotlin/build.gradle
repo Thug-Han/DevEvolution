@@ -16,6 +16,9 @@ android {
     buildToolsVersion androidVersion.buildToolsVersion
 
     defaultConfig {
+        if (ModuleKotlinDebug) {
+            applicationId "com.thughan.kotlin"
+        }
         minSdkVersion androidVersion.minSdkVersion
         targetSdkVersion androidVersion.targetSdkVersion
         versionCode 1

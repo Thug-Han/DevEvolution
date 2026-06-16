@@ -10,6 +10,9 @@ android {
     buildToolsVersion androidVersion.buildToolsVersion
 
     defaultConfig {
+        if (ModuleAndroidDebug) {
+            applicationId "com.thughan.android"
+        }
         minSdkVersion androidVersion.minSdkVersion
         targetSdkVersion androidVersion.targetSdkVersion
         versionCode 1
