@@ -7,14 +7,17 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.thughan.android.ModuleConstants;
-import com.thughan.designmode.DesignConstants;
-import com.thughan.kotlin.KotlinConstants;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private Button mKotlin;
     private Button mDesignMode;
-    private Button mLeakCanary;
-    private Button mCompose;
+    private Button mIpc;
+    private Button mAndroid;
+
+    private static final String PATH_KOTLIN = "/kotlin/compose";
+    private static final String PATH_DESIGN = "/design/activity";
+    private static final String PATH_IPC = "/ipc/activity";
+    private static final String PATH_ANDROID = "/module/activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,24 +27,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ARouter.openDebug();
         ARouter.openLog();
 
+        mKotlin = findViewById(R.id.btn_kotlin);
         mDesignMode = findViewById(R.id.btn_design_mode);
-        mLeakCanary = findViewById(R.id.btn_leak_canary);
-        mCompose = findViewById(R.id.btn_compose);
+        mIpc = findViewById(R.id.btn_ipc);
+        mAndroid = findViewById(R.id.btn_android);
 
-        mLeakCanary.setOnClickListener(this);
+        mKotlin.setOnClickListener(this);
         mDesignMode.setOnClickListener(this);
-        mCompose.setOnClickListener(this);
+        mIpc.setOnClickListener(this);
+        mAndroid.setOnClickListener(this);
+
+        mKotlin.setVisibility(!BuildConfig.MODULE_KOTLIN_DEBUG ? View.VISIBLE : View.GONE);
+        mDesignMode.setVisibility(!BuildConfig.MODULE_DESIGN_MODE_DEBUG ? View.VISIBLE : View.GONE);
+        mIpc.setVisibility(!BuildConfig.MODULE_IPC_DEBUG ? View.VISIBLE : View.GONE);
+        mAndroid.setVisibility(!BuildConfig.MODULE_ANDROID_DEBUG ? View.VISIBLE : View.GONE);
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.btn_design_mode) {
-            ARouter.getInstance().build(DesignConstants.ACTIVITY_PATH).navigation();
-        } else if (id == R.id.btn_leak_canary) {
-            ARouter.getInstance().build(ModuleConstants.ACTIVITY_PATH).navigation();
-        } else if (id == R.id.btn_compose) {
-            ARouter.getInstance().build(KotlinConstants.ACTIVITY_COMPOSE_PATH).navigation();
+        if (id == R.id.btn_kotlin) {
+            ARouter.getInstance().build(PATH_KOTLIN).navigation();
+        } else if (id == R.id.btn_design_mode) {
+            ARouter.getInstance().build(PATH_DESIGN).navigation();
+        } else if (id == R.id.btn_ipc) {
+            ARouter.getInstance().build(PATH_IPC).navigation();
+        } else if (id == R.id.btn_android) {
+            ARouter.getInstance().build(PATH_ANDROID).navigation();
         }
     }
 }

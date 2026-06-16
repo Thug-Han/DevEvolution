@@ -7,21 +7,27 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/btn_kotlin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kotlin" />
+
+    <Button
         android:id="@+id/btn_design_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="design mode" />
+        android:text="Design Mode" />
 
     <Button
-        android:id="@+id/btn_leak_canary"
+        android:id="@+id/btn_ipc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="leak canary" />
+        android:text="IPC" />
 
     <Button
-        android:id="@+id/btn_compose"
+        android:id="@+id/btn_android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Compose" />
+        android:text="Android" />
 
 </LinearLayout>

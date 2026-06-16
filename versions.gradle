@@ -1,8 +1,8 @@
 ext {
     // false 作为lib组件 ，true作为application存在
-    KotlinDebug = false // kotlin模块
-    DesignModeDebug = false // designmode模块
-    IpcDebug = false // ipc模块
+    ModuleKotlinDebug = false // module_kotlin模块
+    ModuleDesignModeDebug = false // module_designmode模块
+    ModuleIpcDebug = false // module_ipc模块
     ModuleAndroidDebug = false // android模块
 
     androidVersion = [

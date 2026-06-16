@@ -1,11 +1,11 @@
-if (DesignModeDebug) {
+if (ModuleIpcDebug) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
 }
 
 android {
-    namespace "com.thughan.designmode"
+    namespace "com.thughan.ipc"
     compileSdkVersion androidVersion.compileSdkVersion
     buildToolsVersion androidVersion.buildToolsVersion
 
@@ -21,6 +21,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
+
             }
         }
     }
@@ -45,8 +46,7 @@ dependencies {
     androidTestImplementation dps.ext_junit
     androidTestImplementation dps.espresso_core
 
-    implementation dps.utilcodex
-
     implementation dps.arouter_api
     annotationProcessor dps.arouter_compiler
+    implementation dps.utilcodex
 }

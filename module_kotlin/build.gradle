@@ -4,7 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android-extensions'
 }
-if (KotlinDebug) {
+if (ModuleKotlinDebug) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'

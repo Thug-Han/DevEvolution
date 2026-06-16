@@ -14,6 +14,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        buildConfigField "boolean", "MODULE_KOTLIN_DEBUG", "${ModuleKotlinDebug}"
+        buildConfigField "boolean", "MODULE_DESIGN_MODE_DEBUG", "${ModuleDesignModeDebug}"
+        buildConfigField "boolean", "MODULE_IPC_DEBUG", "${ModuleIpcDebug}"
+        buildConfigField "boolean", "MODULE_ANDROID_DEBUG", "${ModuleAndroidDebug}"
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
@@ -31,6 +36,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        buildConfig true
+    }
 }
 
 dependencies {
@@ -45,14 +53,14 @@ dependencies {
     implementation dps.arouter_api
     annotationProcessor dps.arouter_compiler
 
-    if (!KotlinDebug){
-        implementation project(':kotlin')
+    if (!ModuleKotlinDebug){
+        implementation project(':module_kotlin')
     }
-    if (!DesignModeDebug){
-        implementation project(':designmode')
+    if (!ModuleDesignModeDebug){
+        implementation project(':module_designmode')
     }
-    if (!IpcDebug){
-        implementation project(':ipc')
+    if (!ModuleIpcDebug){
+        implementation project(':module_ipc')
     }
     if (!ModuleAndroidDebug){
         implementation project(':module_android')

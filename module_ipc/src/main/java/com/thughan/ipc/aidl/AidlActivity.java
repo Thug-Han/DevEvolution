@@ -13,12 +13,15 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.thughan.ipc.IpcConstants;
 import com.thughan.ipc.R;
 import com.thughan.ipc.aidl.common.Book;
 import com.thughan.ipc.aidl.custom.IBookManager;
 
 import java.util.List;
 
+@Route(path = IpcConstants.ACTIVITY_PATH)
 public class AidlActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = AidlActivity.class.getSimpleName();

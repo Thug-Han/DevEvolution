@@ -4,6 +4,10 @@
 
 Android multi-module learning project (Java + Kotlin). Uses ARouter for inter-module navigation.
 
+## Critical Setup
+
+**JDK 17 required.** Kotlin 1.7.20 kapt is incompatible with JDK 21. Set `JAVA_HOME` to JDK 17 or configure `org.gradle.java.home` in `gradle.properties`. If kapt fails on JDK 21, stop the daemon first (`.\gradlew.bat --stop`).
+
 ## Build Commands
 
 ```bash
@@ -12,7 +16,7 @@ Android multi-module learning project (Java + Kotlin). Uses ARouter for inter-mo
 
 # Single module build
 ./gradlew :app:assembleDebug
-./gradlew :kotlin:assembleDebug
+./gradlew :module_kotlin:assembleDebug
 
 # Tests (unit only — no instrumented test runners configured beyond defaults)
 ./gradlew testDebugUnitTest
@@ -30,15 +34,15 @@ Android multi-module learning project (Java + Kotlin). Uses ARouter for inter-mo
 | Module | Purpose | Language |
 |--------|---------|----------|
 | `app` | Main application shell | Java (Kotlin plugin applied) |
-| `kotlin` | Kotlin learning + Compose | Kotlin |
-| `designmode` | Design patterns | Java |
-| `ipc` | IPC demonstrations | Java |
+| `module_kotlin` | Kotlin learning + Compose | Kotlin |
+| `module_designmode` | Design patterns | Java |
+| `module_ipc` | IPC demonstrations | Java |
 | `module_android` | Android utilities | Java |
 
 ## Key Quirks
 
-- **Debug flags** in `versions.gradle`: Set `KotlinDebug = true` (etc.) to run a module standalone as app instead of library. When debug flag is true, the module applies `com.android.application` plugin; when false, `com.android.library`.
-- **Submodules**: `kotlin`, `designmode`, `ipc`, `module_android` are Git submodules — clone with `--recursive`
+- **Debug flags** in `versions.gradle`: Set `ModuleKotlinDebug = true` (etc.) to run a module standalone as app instead of library. When debug flag is true, the module applies `com.android.application` plugin; when false, `com.android.library`.
+- **Modules**: `module_kotlin`, `module_designmode`, `module_ipc`, `module_android` are regular directories in the repo, not Git submodules
 - **ARouter**: All inter-module navigation uses ARouter paths (e.g., `/design/activity`, `/module/activity`). App module uses `annotationProcessor`; Kotlin module uses `kapt` for ARouter annotation processing.
 - **JVM**: Requires JDK 17. Kotlin 1.7.20 kapt is incompatible with JDK 21. `gradle.properties` does NOT set `org.gradle.java.home` — set it yourself or use `JAVA_HOME` pointing to JDK 17.
 - **Kotlin module**: Uses Compose BOM 2024.09.00, Java 11 target
@@ -49,12 +53,12 @@ Android multi-module learning project (Java + Kotlin). Uses ARouter for inter-mo
 ## Entry Points
 
 - `app/src/main/java/com/thughan/evolution/MainActivity.java` — launcher, routes to other modules via ARouter
-- `kotlin/src/main/java/com/thughan/kotlin/jetpack/compose/ComposeActivity.kt` — Compose examples
-- `kotlin/src/main/java/com/thughan/kotlin/firstline/` — Kotlin language learning (chapters 2.2–2.8)
+- `module_kotlin/src/main/java/com/thughan/kotlin/jetpack/compose/ComposeActivity.kt` — Compose examples
+- `module_kotlin/src/main/java/com/thughan/kotlin/firstline/` — Kotlin language learning (chapters 2.2–2.8)
 
 ## ARouter Route Constants
 
 Routes are defined in `*Constants.java` files in each module:
-- `kotlin/src/main/java/com/thughan/kotlin/KotlinConstants.java`: `/kotlin/compose`, `/kotlin/firstline`
-- `designmode/src/main/java/com/thughan/designmode/DesignConstants.java`: `/design/activity`
+- `module_kotlin/src/main/java/com/thughan/kotlin/KotlinConstants.java`: `/kotlin/compose`, `/kotlin/firstline`
+- `module_designmode/src/main/java/com/thughan/designmode/DesignConstants.java`: `/design/activity`
 - `module_android/src/main/java/com/thughan/android/ModuleConstants.java`: `/module/activity`
