@@ -10,6 +10,8 @@ Android multi-module learning project (Java + Kotlin). Uses ARouter for inter-mo
 
 ## Build Commands
 
+Use `./gradlew` (Unix) or `.\gradlew.bat` (Windows). Only JDK 17 works — see Critical Setup above.
+
 ```bash
 # Full build
 ./gradlew assembleDebug
