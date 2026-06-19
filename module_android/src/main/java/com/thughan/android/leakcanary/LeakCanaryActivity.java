@@ -5,15 +5,12 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.LogUtils;
-import com.thughan.android.ModuleConstants;
 import com.thughan.android.R;
 
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 
-@Route(path = ModuleConstants.ACTIVITY_PATH)
 public class LeakCanaryActivity extends AppCompatActivity {
 
     public static final String TAG = LeakCanaryActivity.class.getSimpleName();

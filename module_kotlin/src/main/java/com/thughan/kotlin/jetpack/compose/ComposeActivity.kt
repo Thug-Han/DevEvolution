@@ -12,11 +12,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.alibaba.android.arouter.facade.annotation.Route
-import com.thughan.kotlin.KotlinConstants
 import com.thughan.kotlin.jetpack.compose.ui.theme.EvolutionTheme
 
-@Route(path = KotlinConstants.ACTIVITY_COMPOSE_PATH)
 class ComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

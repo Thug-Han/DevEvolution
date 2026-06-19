@@ -1,6 +1,9 @@
 package com.thughan.kotlin;
 
 public class KotlinConstants {
+    public static final String ACTIVITY_HUB_PATH = "/kotlin/activity";
+    public static final String ACTIVITY_HUB_NAME = "Kotlin模块";
+
     public static final String ACTIVITY_COMPOSE_PATH = "/kotlin/compose";
     public static final String ACTIVITY_COMPOSE_NAME = "compose模块";
 
