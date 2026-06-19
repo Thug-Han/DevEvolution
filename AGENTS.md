@@ -43,14 +43,13 @@ Use `./gradlew` (Unix) or `.\gradlew.bat` (Windows). Only JDK 17 works — see C
 
 ## Key Quirks
 
-- **Debug flags** in `versions.gradle`: Set `ModuleKotlinDebug = true` (etc.) to run a module standalone as app instead of library. When debug flag is true, the module applies `com.android.application` plugin; when false, `com.android.library`.
-- **Modules**: `module_kotlin`, `module_designmode`, `module_ipc`, `module_android` are regular directories in the repo, not Git submodules
+- **Debug flags** in `versions.gradle`: Set `ModuleKotlinDebug = true` (etc.) to run a module standalone as app instead of library. When debug flag is true, the module applies `com.android.application` plugin; when false, `com.android.library`. The launcher intent-filter lives in `src/standalone/AndroidManifest.xml`, dynamically loaded via `sourceSets { debug.manifest.srcFile }` only when the flag is true. This avoids manifest merger leaking launcher activities into the main app.
 - **ARouter**: All inter-module navigation uses ARouter paths (e.g., `/design/activity`, `/module/activity`). App module uses `annotationProcessor`; Kotlin module uses `kapt` for ARouter annotation processing.
-- **JVM**: Requires JDK 17. Kotlin 1.7.20 kapt is incompatible with JDK 21. `gradle.properties` does NOT set `org.gradle.java.home` — set it yourself or use `JAVA_HOME` pointing to JDK 17.
+- **Conditional module dependencies** in `app/build.gradle`: Each submodule is only included as a dependency when its debug flag is false
 - **Kotlin module**: Uses Compose BOM 2024.09.00, Java 11 target
 - **Other modules**: Java 1.8 target
 - **Versions**: Gradle 8.1, AGP 8.1.0, Kotlin 1.7.20
-- **Conditional module dependencies** in `app/build.gradle`: Each submodule is only included as a dependency when its debug flag is false
+- **Modules**: `module_kotlin`, `module_designmode`, `module_ipc`, `module_android` are regular directories in the repo, not Git submodules
 
 ## Entry Points
 
@@ -63,4 +62,5 @@ Use `./gradlew` (Unix) or `.\gradlew.bat` (Windows). Only JDK 17 works — see C
 Routes are defined in `*Constants.java` files in each module:
 - `module_kotlin/src/main/java/com/thughan/kotlin/KotlinConstants.java`: `/kotlin/compose`, `/kotlin/firstline`
 - `module_designmode/src/main/java/com/thughan/designmode/DesignConstants.java`: `/design/activity`
+- `module_ipc/src/main/java/com/thughan/ipc/IpcConstants.java`: `/ipc/activity`
 - `module_android/src/main/java/com/thughan/android/ModuleConstants.java`: `/module/activity`

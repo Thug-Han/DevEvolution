@@ -50,6 +50,12 @@ android {
     buildFeatures {
         compose true
     }
+
+    sourceSets {
+        if (ModuleKotlinDebug) {
+            debug.manifest.srcFile 'src/standalone/AndroidManifest.xml'
+        }
+    }
 //    kapt {
 //        correctErrorTypes  true
 //    }
