@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mAndroid;
     private Button mJni;
 
-    private static final String PATH_KOTLIN = "/kotlin/compose";
+    private static final String PATH_KOTLIN = "/kotlin/activity";
     private static final String PATH_DESIGN = "/design/activity";
     private static final String PATH_IPC = "/ipc/activity";
     private static final String PATH_ANDROID = "/module/activity";

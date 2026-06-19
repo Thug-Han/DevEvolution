@@ -12,12 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Evolution">
         <activity
+            android:name=".AndroidHubActivity"
+            android:exported="true" />
+        <activity
             android:name=".leakcanary.LeakCanaryActivity"
             android:exported="true" />
         <activity
             android:name=".handlerthread.HandlerThreadActivity"
             android:exported="true" />
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".crashcatch.CrashActivity"
             android:exported="true" />
