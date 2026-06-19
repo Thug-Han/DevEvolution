@@ -1,28 +1,35 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+if (ModuleJniDebug) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
 android {
-    namespace "com.thughan.evolution"
+    namespace "com.thughan.jni"
     compileSdkVersion androidVersion.compileSdkVersion
     buildToolsVersion androidVersion.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.thughan.evolution"
+        if (ModuleJniDebug) {
+            applicationId "com.thughan.jni"
+        }
         minSdkVersion androidVersion.minSdkVersion
         targetSdkVersion androidVersion.targetSdkVersion
-        versionCode androidVersion.versionCode
-        versionName androidVersion.versionName
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField "boolean", "MODULE_KOTLIN_DEBUG", "${ModuleKotlinDebug}"
-        buildConfigField "boolean", "MODULE_DESIGN_MODE_DEBUG", "${ModuleDesignModeDebug}"
-        buildConfigField "boolean", "MODULE_IPC_DEBUG", "${ModuleIpcDebug}"
-        buildConfigField "boolean", "MODULE_ANDROID_DEBUG", "${ModuleAndroidDebug}"
-        buildConfigField "boolean", "MODULE_JNI_DEBUG", "${ModuleJniDebug}"
+        consumerProguardFiles "consumer-rules.pro"
 
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
             }
         }
     }
@@ -37,13 +44,22 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildFeatures {
-        buildConfig true
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.22.1"
+        }
+    }
+
+    sourceSets {
+        if (ModuleJniDebug) {
+            debug.manifest.srcFile 'src/standalone/AndroidManifest.xml'
+        }
     }
 }
 
 dependencies {
-
     implementation dps.appcompat
     implementation dps.material
     implementation dps.constraintlayout
@@ -53,20 +69,4 @@ dependencies {
 
     implementation dps.arouter_api
     annotationProcessor dps.arouter_compiler
-
-    if (!ModuleKotlinDebug){
-        implementation project(':module_kotlin')
-    }
-    if (!ModuleDesignModeDebug){
-        implementation project(':module_designmode')
-    }
-    if (!ModuleIpcDebug){
-        implementation project(':module_ipc')
-    }
-    if (!ModuleAndroidDebug){
-        implementation project(':module_android')
-    }
-    if (!ModuleJniDebug){
-        implementation project(':module_jni')
-    }
 }
