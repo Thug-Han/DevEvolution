@@ -1,4 +1,4 @@
-# AGENTS.md
+﻿# AGENTS.md
 
 ## Project Overview
 
@@ -10,7 +10,7 @@ Android multi-module learning project (Java + Kotlin). Uses ARouter for inter-mo
 
 ## Build Commands
 
-Use `./gradlew` (Unix) or `.\gradlew.bat` (Windows). Only JDK 17 works — see Critical Setup above.
+Use `./gradlew` (Unix) or `.\gradlew.bat` (Windows). Only JDK 17 works - see Critical Setup above.
 
 ```bash
 # Full build
@@ -20,7 +20,7 @@ Use `./gradlew` (Unix) or `.\gradlew.bat` (Windows). Only JDK 17 works — see C
 ./gradlew :app:assembleDebug
 ./gradlew :module_kotlin:assembleDebug
 
-# Tests (unit only — no instrumented test runners configured beyond defaults)
+# Tests (unit only - no instrumented test runners configured beyond defaults)
 ./gradlew testDebugUnitTest
 
 # Clean
@@ -40,6 +40,7 @@ Use `./gradlew` (Unix) or `.\gradlew.bat` (Windows). Only JDK 17 works — see C
 | `module_designmode` | Design patterns | Java |
 | `module_ipc` | IPC demonstrations | Java |
 | `module_android` | Android utilities | Java |
+| `module_jni` | JNI demonstrations | Java + C++ |
 
 ## Key Quirks
 
@@ -49,13 +50,13 @@ Use `./gradlew` (Unix) or `.\gradlew.bat` (Windows). Only JDK 17 works — see C
 - **Kotlin module**: Uses Compose BOM 2024.09.00, Java 11 target
 - **Other modules**: Java 1.8 target
 - **Versions**: Gradle 8.1, AGP 8.1.0, Kotlin 1.7.20
-- **Modules**: `module_kotlin`, `module_designmode`, `module_ipc`, `module_android` are regular directories in the repo, not Git submodules
+- **Modules**: `module_kotlin`, `module_designmode`, `module_ipc`, `module_android`, `module_jni` are regular directories in the repo, not Git submodules
 
 ## Entry Points
 
-- `app/src/main/java/com/thughan/evolution/MainActivity.java` — launcher, routes to other modules via ARouter
-- `module_kotlin/src/main/java/com/thughan/kotlin/jetpack/compose/ComposeActivity.kt` — Compose examples
-- `module_kotlin/src/main/java/com/thughan/kotlin/firstline/` — Kotlin language learning (chapters 2.2–2.8)
+- `app/src/main/java/com/thughan/evolution/MainActivity.java` - launcher, routes to other modules via ARouter
+- `module_kotlin/src/main/java/com/thughan/kotlin/jetpack/compose/ComposeActivity.kt` - Compose examples
+- `module_kotlin/src/main/java/com/thughan/kotlin/firstline/` - Kotlin language learning (chapters 2.2-2.8)
 
 ## ARouter Route Constants
 
@@ -64,3 +65,4 @@ Routes are defined in `*Constants.java` files in each module:
 - `module_designmode/src/main/java/com/thughan/designmode/DesignConstants.java`: `/design/activity`
 - `module_ipc/src/main/java/com/thughan/ipc/IpcConstants.java`: `/ipc/activity`
 - `module_android/src/main/java/com/thughan/android/ModuleConstants.java`: `/module/activity`
+- `module_jni/src/main/java/com/thughan/jni/JniConstants.java`: `/jni/activity`

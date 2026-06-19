@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click a button to call JNI method"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="#f0f0f0" />
+
+    <Button
+        android:id="@+id/btn_hello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nativeHello()"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nativeAdd(10, 20)"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nativeGetString()"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_array"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nativePrintArray()"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_factorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nativeFactorial(5)" />
+
+</LinearLayout>

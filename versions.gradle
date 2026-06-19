@@ -1,9 +1,10 @@
 ext {
-    // false 作为lib组件 ，true作为application存在
-    ModuleKotlinDebug = false // module_kotlin模块
-    ModuleDesignModeDebug = false // module_designmode模块
-    ModuleIpcDebug = false // module_ipc模块
-    ModuleAndroidDebug = false // android模块
+    // false as lib, true as application
+    ModuleKotlinDebug = false
+    ModuleDesignModeDebug = false
+    ModuleIpcDebug = false
+    ModuleAndroidDebug = false
+    ModuleJniDebug = false
 
     androidVersion = [
             applicationId    : "com.thughan.evolution",
