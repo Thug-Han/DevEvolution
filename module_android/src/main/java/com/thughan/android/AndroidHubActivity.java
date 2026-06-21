@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.thughan.android.anr.ANRActivity;
 import com.thughan.android.crashcatch.CrashActivity;
 import com.thughan.android.handlerthread.HandlerThreadActivity;
 import com.thughan.android.leakcanary.LeakCanaryActivity;
@@ -18,15 +19,17 @@ public class AndroidHubActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hub);
+        setContentView(R.layout.activity_android_hub);
 
         Button btnLeakCanary = findViewById(R.id.btn_leak_canary);
         Button btnHandlerThread = findViewById(R.id.btn_handler_thread);
         Button btnCrash = findViewById(R.id.btn_crash);
+        Button btnAnr = findViewById(R.id.btn_anr);
 
         btnLeakCanary.setOnClickListener(this);
         btnHandlerThread.setOnClickListener(this);
         btnCrash.setOnClickListener(this);
+        btnAnr.setOnClickListener(this);
     }
 
     @Override
@@ -38,6 +41,8 @@ public class AndroidHubActivity extends AppCompatActivity implements View.OnClic
             startActivity(new Intent(this, HandlerThreadActivity.class));
         } else if (id == R.id.btn_crash) {
             startActivity(new Intent(this, CrashActivity.class));
+        } else if (id == R.id.btn_anr) {
+            startActivity(new Intent(this, ANRActivity.class));
         }
     }
 }

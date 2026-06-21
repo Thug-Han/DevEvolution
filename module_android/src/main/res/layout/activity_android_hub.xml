@@ -31,6 +31,13 @@
         android:id="@+id/btn_crash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Crash崩溃捕获" />
+        android:text="Crash崩溃捕获"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_anr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ANR示例" />
 
 </LinearLayout>
