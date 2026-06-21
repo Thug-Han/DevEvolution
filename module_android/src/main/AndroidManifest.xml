@@ -3,6 +3,9 @@
     package="com.thughan.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -23,5 +26,15 @@
         <activity
             android:name=".crashcatch.CrashActivity"
             android:exported="true" />
+        <activity
+            android:name=".anr.ANRActivity"
+            android:exported="true" />
+        <service
+            android:name=".anr.ForegroundAnrService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false" />
+        <service
+            android:name=".anr.BackgroundAnrService"
+            android:exported="false" />
     </application>
 </manifest>
