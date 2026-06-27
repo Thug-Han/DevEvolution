@@ -12,4 +12,5 @@ public class ModuleConstants {
     public static final String PATH_HANDLER_THREAD = "/module/handler_thread";
     public static final String PATH_CRASH = "/module/crash";
     public static final String PATH_MAIN = "/module/main";
+    public static final String PATH_PERFORMANCE = "/module/performance";
 }

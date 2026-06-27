@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← 返回"
+                android:textSize="14sp"
+                android:backgroundTint="#9E9E9E"
+                android:layout_marginEnd="12dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Android 性能优化学习"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="内存泄漏"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_static_ref_leak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. 静态引用泄漏"
+            android:layout_marginBottom="4dp"/>
+
+        <Button
+            android:id="@+id/btn_handler_leak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Handler泄漏"
+            android:layout_marginBottom="4dp"/>
+
+        <Button
+            android:id="@+id/btn_anonymous_leak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. 匿名内部类泄漏"
+            android:layout_marginBottom="4dp"/>
+
+        <Button
+            android:id="@+id/btn_singleton_leak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. 单例持有Context泄漏"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bitmap内存"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_bitmap_large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Bitmap内存过大"
+            android:layout_marginBottom="4dp"/>
+
+        <Button
+            android:id="@+id/btn_bitmap_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6. Bitmap未回收"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="内存抖动"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_temp_object"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7. 过多临时对象"
+            android:layout_marginBottom="4dp"/>
+
+        <Button
+            android:id="@+id/btn_memory_churn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8. 内存抖动"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="UI渲染"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_overdraw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="9. 过度绘制"
+            android:layout_marginBottom="4dp"/>
+
+        <Button
+            android:id="@+id/btn_layout_depth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10. 布局层级过深"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动优化"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_slow_startup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="14-16. 启动耗时优化"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="线程与IO"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_thread_pool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="20. 线程池 vs new Thread"
+            android:layout_marginBottom="4dp"/>
+
+        <Button
+            android:id="@+id/btn_shared_prefs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="19. SharedPreferences主线程提交"/>
+
+    </LinearLayout>
+</ScrollView>

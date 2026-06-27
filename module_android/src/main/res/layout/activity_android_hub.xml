@@ -38,6 +38,14 @@
         android:id="@+id/btn_anr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ANR示例" />
+        android:text="ANR示例"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_performance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="性能优化学习"
+        android:layout_marginBottom="8dp" />
 
 </LinearLayout>
