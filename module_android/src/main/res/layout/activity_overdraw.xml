@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 过度绘制演示：故意嵌套多层背景 -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="过度绘制演示"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开「开发者选项 → 调试GPU过度绘制」查看颜色叠加"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 问题：每层都设置了背景，导致过度绘制 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#FFEB3B"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#FF9800"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="这里有3层背景绘制"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="FrameLayout(黄) → LinearLayout(橙) → TextView"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- 更多过度绘制示例 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#4CAF50"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#2196F3"
+                android:gravity="center"
+                android:text="RelativeLayout(绿) + TextView(蓝)\n共2层过度绘制"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="修复方法：移除不必要的背景色，使用 transparent 或移除父容器背景"
+            android:textSize="12sp"
+            android:textColor="#F44336"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+</ScrollView>

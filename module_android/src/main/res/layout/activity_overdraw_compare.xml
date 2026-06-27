@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="9. 过度绘制对比"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#F44336"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_run_bad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="运行问题代码"
+                android:textSize="12sp"
+                android:backgroundTint="#F44336"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btn_run_good"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="运行优化代码"
+                android:textSize="12sp"
+                android:backgroundTint="#4CAF50"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="重置"
+                android:textSize="12sp"
+                android:backgroundTint="#FF9800"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="返回"
+                android:textSize="12sp"
+                android:backgroundTint="#9E9E9E"
+                android:layout_marginStart="4dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="【问题代码】多层布局都设置了背景色"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#F44336"
+            android:layout_marginBottom="8dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:background="@android:color/white">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFEB3B">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="#FF9800"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="3层背景：FrameLayout(黄) → LinearLayout(橙) → TextView"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="→ 同一像素被绘制3次，GPU负载高"
+            android:textSize="12sp"
+            android:textColor="#F44336"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="【优化后正常代码】移除不必要的背景色"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="8dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="只保留1层背景：移除FrameLayout和LinearLayout的background"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="→ 每个像素只绘制1次，GPU负载最低"
+            android:textSize="12sp"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击按钮运行代码查看效果"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="#FFFFFF"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+</ScrollView>

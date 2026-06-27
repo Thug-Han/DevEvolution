@@ -29,6 +29,51 @@
         <activity
             android:name=".anr.ANRActivity"
             android:exported="true" />
+
+        <!-- 性能优化学习模块 -->
+        <activity
+            android:name=".performance.PerformanceHubActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.memory.StaticRefLeakActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.memory.HandlerLeakActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.memory.AnonymousClassLeakActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.memory.SingletonLeakActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.bitmap.BitmapLargeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.bitmap.BitmapRecycleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.churn.TempObjectActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.churn.MemoryChurnActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.ui.OverdrawActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.ui.LayoutDepthActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.startup.SlowStartupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.thread.ThreadPoolActivity"
+            android:exported="true" />
+        <activity
+            android:name=".performance.io.SharedPrefsActivity"
+            android:exported="true" />
+
         <service
             android:name=".anr.ForegroundAnrService"
             android:foregroundServiceType="dataSync"

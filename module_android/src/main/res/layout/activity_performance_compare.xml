@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="性能问题演示"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#F44336"
+            android:layout_marginBottom="6dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_run_bad"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="运行问题代码"
+                android:textSize="10sp"
+                android:backgroundTint="#F44336"
+                android:layout_marginEnd="3dp"/>
+
+            <Button
+                android:id="@+id/btn_run_good"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="运行优化代码"
+                android:textSize="10sp"
+                android:backgroundTint="#4CAF50"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"/>
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="重置"
+                android:textSize="10sp"
+                android:backgroundTint="#FF9800"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"/>
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="返回"
+                android:textSize="10sp"
+                android:backgroundTint="#9E9E9E"
+                android:layout_marginStart="3dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="运行结果"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#FFFFFF"
+            android:padding="6dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_problem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="问题代码"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#FFEBEE"
+            android:padding="6dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_detect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="检测方法"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#E3F2FD"
+            android:padding="6dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_fix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="修复方法"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#E8F5E9"
+            android:padding="6dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_optimize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="优化后正常代码"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#FFF8E1"
+            android:padding="6dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="#666666"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 布局层级过深演示：故意嵌套多层 -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="布局层级过深演示"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开 Layout Inspector 查看层级深度"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 问题：嵌套了7层布局，应该用 ConstraintLayout 扁平化 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E3F2FD"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#BBDEFB"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#90CAF9"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#64B5F6"
+                        android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="这里嵌套了7层LinearLayout"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp"
+                                android:layout_marginBottom="4dp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="实际只需要1层ConstraintLayout"
+                                android:textColor="@android:color/white"
+                                android:textSize="12sp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="修复方法：使用 ConstraintLayout 扁平化布局，减少嵌套层级"
+            android:textSize="12sp"
+            android:textColor="#F44336"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
