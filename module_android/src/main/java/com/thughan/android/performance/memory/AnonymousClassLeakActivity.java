@@ -112,6 +112,5 @@ public class AnonymousClassLeakActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        resetState();
     }
 }
