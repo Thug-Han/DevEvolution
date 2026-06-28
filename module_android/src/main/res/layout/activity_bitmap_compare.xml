@@ -71,6 +71,17 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="对比结果"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
             android:id="@+id/tv_problem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -129,17 +140,6 @@
             android:scaleType="centerInside"
             android:background="#EEEEEE"
             android:layout_marginBottom="8dp"/>
-
-        <TextView
-            android:id="@+id/tv_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="对比结果"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:background="#FFFFFF"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"/>
 
     </LinearLayout>
 </ScrollView>

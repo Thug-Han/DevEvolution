@@ -71,6 +71,17 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击按钮运行代码查看效果"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="【问题代码】多层布局都设置了背景色"
@@ -170,16 +181,6 @@
             android:textSize="12sp"
             android:textColor="#4CAF50"
             android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:id="@+id/tv_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="点击按钮运行代码查看效果"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:background="#FFFFFF"
-            android:padding="12dp"/>
 
     </LinearLayout>
 </ScrollView>
