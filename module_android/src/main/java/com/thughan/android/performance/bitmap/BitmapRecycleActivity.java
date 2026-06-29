@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.thughan.android.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 性能问题 #6：Bitmap 未回收导致内存泄漏
  */
@@ -16,6 +19,7 @@ public class BitmapRecycleActivity extends Activity {
 
     private ImageView mImageView;
     private Bitmap mCurrentBitmap;
+    private List<Bitmap> mBitmapList = new ArrayList<>();
     private TextView tvResult;
 
     @Override
@@ -75,15 +79,16 @@ public class BitmapRecycleActivity extends Activity {
     }
 
     private void runBadCode() {
-        // 不回收旧的，直接创建新的
+        // 不回收旧的，直接创建新的，但用 List 保存所有引用阻止 GC
         mCurrentBitmap = Bitmap.createBitmap(1000, 1000, Bitmap.Config.ARGB_8888);
+        mBitmapList.add(mCurrentBitmap);
         mImageView.setImageBitmap(mCurrentBitmap);
         long memory = mCurrentBitmap.getByteCount() / 1024;
 
         tvResult.setText("问题代码已执行：\n" +
                 "创建新 Bitmap，未回收旧的\n\n" +
                 "当前 Bitmap: " + memory + "KB\n" +
-                "切换 N 次后占用: " + memory + " × N KB\n\n" +
+                "已创建 " + mBitmapList.size() + " 个，共占用: " + (memory * mBitmapList.size()) + "KB\n\n" +
                 "旧 Bitmap 仍占用内存\n" +
                 "验证：Profiler → Memory → 观察内存持续增长");
     }
@@ -93,25 +98,30 @@ public class BitmapRecycleActivity extends Activity {
         if (mCurrentBitmap != null && !mCurrentBitmap.isRecycled()) {
             mCurrentBitmap.recycle();
         }
+        mBitmapList.clear();
         mCurrentBitmap = Bitmap.createBitmap(1000, 1000, Bitmap.Config.ARGB_8888);
+        mBitmapList.add(mCurrentBitmap);
         mImageView.setImageBitmap(mCurrentBitmap);
         long memory = mCurrentBitmap.getByteCount() / 1024;
 
         tvResult.setText("优化代码已执行：\n" +
                 "先回收旧 Bitmap，再创建新的\n\n" +
                 "当前 Bitmap: " + memory + "KB\n" +
-                "切换 N 次后占用: " + memory + " × 1 KB\n\n" +
-                "内存中只有当前图片\n" +
+                "内存中只有 " + mBitmapList.size() + " 个 Bitmap\n\n" +
+                "内存稳定，不会持续增长\n" +
                 "验证：Profiler → Memory → 内存稳定");
     }
 
     private void resetState() {
-        if (mCurrentBitmap != null && !mCurrentBitmap.isRecycled()) {
-            mCurrentBitmap.recycle();
-            mCurrentBitmap = null;
+        for (Bitmap bitmap : mBitmapList) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
         }
+        mBitmapList.clear();
+        mCurrentBitmap = null;
         mImageView.setImageBitmap(null);
-        tvResult.setText("已重置：Bitmap 已回收，ImageView 已清空");
+        tvResult.setText("已重置：所有 Bitmap 已回收，ImageView 已清空");
     }
 
     @Override
