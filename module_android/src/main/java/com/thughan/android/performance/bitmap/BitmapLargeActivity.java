@@ -95,6 +95,10 @@ public class BitmapLargeActivity extends Activity {
     }
 
     private void runGoodCode() {
+        if (mLargeBitmap != null && !mLargeBitmap.isRecycled()) {
+            mLargeBitmap.recycle();
+            mLargeBitmap = null;
+        }
         if (mOptimizedBitmap != null && !mOptimizedBitmap.isRecycled()) {
             mOptimizedBitmap.recycle();
         }
